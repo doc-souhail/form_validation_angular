@@ -1,0 +1,37 @@
+<app-home></app-home>
+<div class="container my-5">
+    <table *ngIf="books.length; else noBooks" class="table table-bordered border-primary">
+        <thead class="table-info">
+            <tr>
+              <th scope="col">Full Name</th>
+              <!-- <th scope="col">Email</th> -->
+              <th scope="col">Book Name</th>
+              <th scope="col">Book SIREN</th>
+              <th scope="col">Borrow Date</th>
+              <th scope="col">Rturn Date</th>
+              <th scope="col">Image</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let book of books">
+              <td>{{ book.fullName }}</td>
+              <!-- <td>{{ book.email }}</td> -->
+              <td>{{ book.bookName }}</td>
+              <td>{{ book.bookSIREN }}</td>
+              <td>{{ book.borrowDate }}</td>
+              <td>{{ book.returnDate }}</td>
+              <td style="max-width: 100px;"><img src="../../assets/wallhaven-lmrdmq.png" class="img-fluid rounded" alt=""></td>
+              <td>
+                <button class="btn btn-danger mx-2" (click)="deleteReservationBook(book.id)">Delete <i class="bi bi-trash"></i></button>
+                <!-- //ICI IL FAUT AJOUTER LE ROUTERLINK AVEC LE ROUTE VERT LE FORMULAIRE AUSSI AVEC LE ID -->
+                <button class="btn btn-warning" [routerLink]="['/edit', book.id]">Edit <i class="bi bi-pencil-square"></i></button>
+              </td>
+            </tr>
+          </tbody>
+      </table>   
+      <ng-template #noBooks>
+        <p class="text-warning">No element found 😢</p>
+      </ng-template> 
+</div>
+

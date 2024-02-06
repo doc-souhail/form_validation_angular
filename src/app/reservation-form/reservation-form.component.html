@@ -1,0 +1,67 @@
+<app-home></app-home>
+<div class="container my-5">
+    <h1 class="display-5">Borrow a Book 😃</h1>
+    <form [formGroup]="reservationBook" (ngSubmit)="onSubmit()" >
+        <div class="mb-3">
+          <label class="form-label">Full Name</label>
+          <input formControlName="fullName" type="text" class="form-control">
+          <div *ngIf="reservationBook.get('fullName')?.invalid && reservationBook.get('fullName')?.touched"> 
+            <p class="text-danger">
+                Please choose a Name.
+            </p>    
+        </div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Email Address</label>
+          <input formControlName="email" type="email" class="form-control">
+          <div *ngIf="reservationBook.get('email')?.invalid && reservationBook.get('email')?.touched"> 
+            <p class="text-danger">
+                Please choose an email.
+            </p>    
+        </div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Book Name</label>
+          <input formControlName="bookName" type="text" class="form-control">
+          <div *ngIf="reservationBook.get('bookName')?.invalid && reservationBook.get('bookName')?.touched"> 
+            <p class="text-danger">
+                Please choose a book name.
+            </p>    
+        </div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Book SIREN</label>
+          <input formControlName="bookSIREN" type="number" class="form-control">
+          <div *ngIf="reservationBook.get('bookSIREN')?.invalid && reservationBook.get('bookSIREN')?.touched"> 
+            <p class="text-danger">
+                Please choose the book SIRENN.
+            </p>    
+        </div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Borrow Date</label>
+          <input formControlName="borrowDate" type="date" class="form-control">
+          <div *ngIf="reservationBook.get('borrowDate')?.invalid && reservationBook.get('borrowDate')?.touched"> 
+            <p class="text-danger">
+                Please choose the borrow date.
+            </p>    
+        </div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Return Date</label>
+          <input formControlName="returnDate"  type="date" class="form-control">
+          <div *ngIf="reservationBook.get('returnDate')?.invalid && reservationBook.get('returnDate')?.touched"> 
+            <p class="text-danger">
+                Please choose the return date.
+            </p>    
+        </div>
+        </div>
+        <div *ngIf="showSuccessMessage">
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+          Your book has been send successfully👌.
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        </div>
+        <button [disabled]="reservationBook.invalid" type="submit" class="btn btn-success">Add Book</button>
+      </form>
+</div>
