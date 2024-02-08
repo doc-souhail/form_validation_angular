@@ -1,4 +1,3 @@
-import { ReservationService } from './../../../../hotel-app/src/app/reservation/reservation.service';
 import { Reservation } from './../models/reservation';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
