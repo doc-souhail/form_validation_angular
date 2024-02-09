@@ -53,7 +53,8 @@ export class ReservationFormComponent implements OnInit {
         this.reservationBook.reset();
         this.showSuccessMessage = true;
       }
-      this.router.navigate(['/list'])
+      //redirection
+      //this.router.navigate(['/list'])
     }
   }
 }
